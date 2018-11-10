@@ -11,7 +11,9 @@ const routes: Routes = [
   {
     path: 'lost',
     component: LostPetsComponent,
-    resolve: LostPetsResolver
+    resolve: {
+      lostPets: LostPetsResolver
+    }
   },
   { path: '**', component: HomeComponent },
 ];

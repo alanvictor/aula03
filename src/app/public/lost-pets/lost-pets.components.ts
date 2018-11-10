@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -12,10 +11,9 @@ export class LostPetsComponent implements OnInit {
 
     constructor(
         private router: ActivatedRoute
-    ) {
-    }
+    ) {}
 
     ngOnInit() {
-        console.log(this.router.snapshot.data);
+        this.lostPets = this.router.snapshot.data.lostPets.results;
     }
 }

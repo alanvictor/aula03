@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { PublicModule } from './public/public.module';
 import { AppRoutingModule } from './app-routing.module';
+import { LostPetsResolver } from './public/lost-pets/lost-pets.resolver';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import { AppRoutingModule } from './app-routing.module';
     PublicModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+    LostPetsResolver
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
