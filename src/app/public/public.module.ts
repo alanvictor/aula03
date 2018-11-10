@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { SharedModule } from '../shared/shared.module';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { LostPetsComponent } from './lost-pets/lost-pets.components';
+import { FilterPipe } from './lost-pets/filter.pipe';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { LostPetsComponent } from './lost-pets/lost-pets.components';
   ],
   declarations: [
     HomeComponent,
-    LostPetsComponent
+    LostPetsComponent,
+    FilterPipe
   ],
   exports: [
     HomeComponent,

@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class LostPetsComponent implements OnInit {
     lostPets = [];
+    filter = '';
 
     constructor(
         private router: ActivatedRoute
@@ -15,5 +16,9 @@ export class LostPetsComponent implements OnInit {
 
     ngOnInit() {
         this.lostPets = this.router.snapshot.data.lostPets.results;
+    }
+
+    keyUp(event) {
+        this.filter = event.target.value;
     }
 }
