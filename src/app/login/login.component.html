@@ -11,9 +11,14 @@
             placeholder="usuário" 
             formControlName="user"
             autofocus>  
-        <span 
-          class="text-danger d-block mt-2"
-          *ngIf="login.get('user').errors?.required">nome do usuario é obrigatorio</span>
+        <app-form-error-message 
+          *ngIf="login.get('user').errors?.required">
+          nome do usuario é obrigatorio
+        </app-form-error-message>`
+        <app-form-error-message 
+          *ngIf="login.get('user').errors?.email">
+          nome do usuario é email
+        </app-form-error-message>
     </div>
 
     <div class="form-group">
@@ -22,6 +27,9 @@
             class="form-control" 
             formControlName="password"
             placeholder="senha">              
+            <span 
+            class="text-danger d-block mt-2"
+            *ngIf="login.get('password').errors?.required">nome do usuario é um e-mail</span>
     </div>
 
     <button 

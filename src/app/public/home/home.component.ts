@@ -24,4 +24,8 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
+  favorited(event) {
+    console.log('favoritou!', event);
+  }
+
 }

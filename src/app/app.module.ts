@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { LostPetsResolver } from './public/lost-pets/lost-pets.resolver';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { SharedComponentsModule } from './shared/components/components.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     SharedModule,
     PublicModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [
     LostPetsResolver

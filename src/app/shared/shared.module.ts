@@ -8,11 +8,13 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ToggleNavigationDirective } from './directives/toggle-navigation.directive';
+import { SharedComponentsModule } from './components/components.module';
+import { FormErrorMessageComponent } from './components/form-error-message/form-error-message.component';
 
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule
+        RouterModule,
     ],
     declarations: [
         IsAdoptedPipe,
@@ -20,13 +22,15 @@ import { ToggleNavigationDirective } from './directives/toggle-navigation.direct
         ToggleNavigationDirective,
         PageNotFoundComponent,
         FooterComponent,
-        HeaderComponent
+        HeaderComponent,
+        FormErrorMessageComponent
     ],
     exports: [
         PageNotFoundComponent,
         FooterComponent,
         HeaderComponent,
-        IsAdoptedPipe
+        IsAdoptedPipe,
+        FormErrorMessageComponent
     ]
 })
 export class SharedModule { }
