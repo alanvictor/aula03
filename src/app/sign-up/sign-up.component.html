@@ -1,3 +1,61 @@
-<p>
-  sign-up works!
-</p>
+<h4 class="text-center">Cadastro usuário</h4>
+
+<form 
+  class="form mt-4" 
+  [formGroup]="user"
+  (submit)="submit($event)">
+
+    <div class="form-group">
+        <input 
+            class="form-control" 
+            placeholder="nome" 
+            formControlName="name"
+            autofocus>  
+        <app-form-error-message 
+          *ngIf="user.get('name').errors?.required">
+          nome do usuario é obrigatorio
+        </app-form-error-message>
+    </div>
+
+    <div class="form-group">
+        <input 
+            class="form-control" 
+            placeholder="e-mail" 
+            formControlName="email"
+            autofocus>  
+        <app-form-error-message 
+          *ngIf="user.get('email').errors?.required">
+          email do usuario é obrigatorio
+        </app-form-error-message>
+    </div>
+
+    <div class="form-group">
+        <input
+            type="password" 
+            class="form-control" 
+            formControlName="password"
+            placeholder="senha">
+    </div>
+
+    <div class="form-group">
+        <input
+            type="password" 
+            class="form-control" 
+            formControlName="passwordConfirm"
+            placeholder="confirme sua senha">
+    </div>
+
+    <button 
+        type="submit" 
+        [disabled]="user.invalid"
+        class="btn btn-primary btn-block">
+        user
+    </button>
+
+</form>
+
+<p>Nao tem usuário? <a routerLink="/sign-up">Cadastre-se</a></p>
+
+<pre>
+  {{ user.value | json }}
+</pre>
