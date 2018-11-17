@@ -5,21 +5,29 @@ import { SharedModule } from '../shared/shared.module';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { LostPetsComponent } from './lost-pets/lost-pets.components';
 import { FilterPipe } from './lost-pets/filter.pipe';
+import { PetDetailComponent } from './shared/components/pet-detail/pet-detail.component';
+import { PetListItemComponent } from './shared/components/pet-list-item/pet-list-item.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
+    RouterModule,
     CarouselModule
   ],
   declarations: [
     HomeComponent,
     LostPetsComponent,
-    FilterPipe
+    FilterPipe,
+    PetDetailComponent,
+    PetListItemComponent
   ],
   exports: [
     HomeComponent,
-    LostPetsComponent
+    LostPetsComponent,
+    PetDetailComponent,
+    PetListItemComponent
   ]
 })
 export class PublicModule { }

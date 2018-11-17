@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PetsService } from '../services/pets.service';
 import { PetOptions } from '../pet-list-item/pet-list-item.options';
 import { Title } from '@angular/platform-browser';
+import { PetsService } from 'src/app/shared/services/pets.service';
 
 @Component({
   selector: 'app-pet-detail',

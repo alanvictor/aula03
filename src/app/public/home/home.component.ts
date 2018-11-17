@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PetOptions } from 'src/app/shared/pet-list-item/pet-list-item.options';
 import { PetsService } from 'src/app/shared/services/pets.service';
 import { CarouselConfig } from 'ngx-bootstrap/carousel';
-
+import { PetOptions } from '../shared/components/pet-list-item/pet-list-item.options';
 
 @Component({
   selector: 'app-home',

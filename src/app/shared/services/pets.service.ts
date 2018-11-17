@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { PetOptions } from '../pet-list-item/pet-list-item.options';
+import { PetOptions } from 'src/app/public/shared/components/pet-list-item/pet-list-item.options';
 
 @Injectable({
   providedIn: 'root'

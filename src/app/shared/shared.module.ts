@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { PetListItemComponent } from './pet-list-item/pet-list-item.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { PetDetailComponent } from './pet-detail/pet-detail.component';
 import { IsAdoptedPipe } from './pipes/is-adopted.pipe';
 import { NormalFontWeightDirective } from './directives/normal-font-weight.directive';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
+import { ToggleNavigationDirective } from './directives/toggle-navigation.directive';
 
 @NgModule({
     imports: [
@@ -15,18 +15,18 @@ import { NormalFontWeightDirective } from './directives/normal-font-weight.direc
         RouterModule
     ],
     declarations: [
-        PetListItemComponent,
-        HeaderComponent,
-        FooterComponent,
-        PetDetailComponent,
         IsAdoptedPipe,
         NormalFontWeightDirective,
+        ToggleNavigationDirective,
+        PageNotFoundComponent,
+        FooterComponent,
+        HeaderComponent
     ],
     exports: [
-        PetListItemComponent,
-        HeaderComponent,
+        PageNotFoundComponent,
         FooterComponent,
-        PetDetailComponent
+        HeaderComponent,
+        IsAdoptedPipe
     ]
 })
 export class SharedModule { }
