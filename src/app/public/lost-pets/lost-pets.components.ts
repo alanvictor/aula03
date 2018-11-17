@@ -14,11 +14,11 @@ export class LostPetsComponent implements OnInit, OnDestroy {
     filterSubject: Subject<string> = new Subject();
 
     constructor(
-        private router: ActivatedRoute
+        private router: ActivatedRoute,
     ) {}
 
     ngOnInit() {
-        this.lostPets = this.router.snapshot.data.lostPets.results;
+        this.lostPets = this.router.snapshot.data.lostPets.results.slice(0, 10);
         this.filterSubject
             .pipe(
                 debounceTime(300)

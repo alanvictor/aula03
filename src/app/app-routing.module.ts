@@ -9,11 +9,12 @@ import { PageNotFoundComponent } from './shared/components/page-not-found/page-n
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { PetDetailComponent } from './public/shared/components/pet-detail/pet-detail.component';
+import { CanActivatePetGuard } from './public/guards/can-activate-pet.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent },
-  { path: 'pet/:id/:slug', component: PetDetailComponent },
+  { path: 'pet/:id/:slug', component: PetDetailComponent, canActivate: [ CanActivatePetGuard ] },
   { path: 'pets', children: [
     {
       path: 'lost',
@@ -29,12 +30,16 @@ const routes: Routes = [
         lostPets: LostPetsResolver
       }
     },
+    {
+      path: '', redirectTo: 'adoption', pathMatch: 'full'
+    }
   ]
   },
   { path: 'login', component: LoginComponent  },
   { path: 'sign-up', component: SignUpComponent },
   // { path: 'my-pets', loadChildren: '' },
-  { path: '**', component: PageNotFoundComponent }
+  { path: 'page-not-found', component: PageNotFoundComponent },
+  { path: '**', redirectTo: 'page-not-found' }
 ];
 @NgModule({
   imports: [

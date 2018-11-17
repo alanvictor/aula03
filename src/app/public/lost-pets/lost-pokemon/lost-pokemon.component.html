@@ -1,0 +1,16 @@
+<h2>{{ pokemon.name }}</h2>
+
+<div>
+  <img 
+    *ngIf="!resolvedData"
+    src="http://cdn8.bigcommerce.com/s-auu4kfi2d9/stencil/cc75d450-b2b3-0135-7293-525400dfdca6/e/933395a0-cb1b-0135-a812-525400970412/icons/icon-no-image.svg"
+    height="40"
+    class="rounded"
+  /> 
+  <img 
+    *ngIf="resolvedData"
+    [src]="resolvedData?.sprites?.front_default" 
+    class="rounded" 
+    alt="{{ pokemon.name }}" 
+    height="40" />
+</div>

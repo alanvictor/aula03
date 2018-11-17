@@ -18,6 +18,19 @@ export class PokemonService {
     get(): Observable<PokemonListOptions> {
         return this.http.get<PokemonListOptions>(this.url);
     }
+
+    getFromUrl(url: string): Observable<PokemonDetail> {
+        return this.http.get<PokemonDetail>(url);
+    }
 }
 
+export interface PokemonDetail {
+    name: string;
+    order: number;
+    weigth: number;
+    sprites: SpriteDetail;
+}
 
+interface SpriteDetail {
+    front_default;
+}

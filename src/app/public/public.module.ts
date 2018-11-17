@@ -8,6 +8,7 @@ import { FilterPipe } from './lost-pets/filter.pipe';
 import { PetDetailComponent } from './shared/components/pet-detail/pet-detail.component';
 import { PetListItemComponent } from './shared/components/pet-list-item/pet-list-item.component';
 import { RouterModule } from '@angular/router';
+import { LostPokemonComponent } from './lost-pets/lost-pokemon/lost-pokemon.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { RouterModule } from '@angular/router';
     LostPetsComponent,
     FilterPipe,
     PetDetailComponent,
-    PetListItemComponent
+    PetListItemComponent,
+    LostPokemonComponent
   ],
   exports: [
     HomeComponent,
