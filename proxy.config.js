@@ -4,9 +4,10 @@ const proxy = [
       secure: false,
       changeOrigin: true,
       logLevel: "debug",
-      // target: 'https://academiadev-financeiro.herokuapp.com',
-      target: 'https://backendcombacon.herokuapp.com',
-      pathRewrite: {'/api/user' : '/user'}
+      target: 'https://academiadev-financeiro.herokuapp.com',
+      // target: 'https://backendcombacon.herokuapp.com',
+      // pathRewrite: {'/api/user' : '/user'}
+      pathRewrite: {'^/api' : ''}
     }
   ];
 

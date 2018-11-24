@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../user/user.service';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-sign-up',
@@ -8,8 +9,9 @@ import { UserService } from '../user/user.service';
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit {
-
+  feedback: Feedback;
   user: FormGroup;
+  isBusy: boolean;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -27,9 +29,42 @@ export class SignUpComponent implements OnInit {
 
   submit() {
     if (this.user.valid) {
-      this.userService.create(this.user.value).subscribe(user => console.log(user));
-      // this.userService.get().subscribe(value => console.log(value));
+      this.isBusy = true;
+      this.userService
+        .create(this.user.value)
+        .pipe(
+          finalize(() => this.isBusy = false)
+        )
+        .subscribe(
+          () => {
+            this.feedback = {
+              type: 'success',
+              title: 'Você conseguiu!',
+              message: 'Seu cadastro foi efetuado com sucesso'
+            };
+
+            this.resetForm();
+          },
+          error => {
+            this.feedback = {
+              type: 'danger',
+              title: 'Ops!',
+              message: error.message
+            };
+            console.log('error', error);
+          }
+        );
     }
   }
 
+  resetForm() {
+    this.user.reset();
+  }
+}
+
+
+class Feedback {
+  type: string;
+  title: string;
+  message: string;
 }

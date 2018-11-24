@@ -21,3 +21,4 @@ export const APIUserFactory = function(user: User): APIUser {
         senha: user.password
     };
 };
+

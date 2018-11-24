@@ -4,8 +4,11 @@ import {
   Router,
   Event,
   NavigationStart,
-  NavigationEnd, NavigationError, NavigationCancel 
+  NavigationEnd,
+  NavigationError,
+  NavigationCancel
 } from '@angular/router';
+import { OAuthService } from 'angular-oauth2-oidc';
 
 @Component({
   selector: 'app-root',
@@ -17,8 +20,10 @@ export class AppComponent {
 
   constructor(
     titleService: Title,
-    router: Router
+    router: Router,
+    private oAuthService: OAuthService
   ) {
+    this.oauthSetup();
     titleService.setTitle('Pet Codes');
     router.events.subscribe((routerEvent: Event) => {
       this.checkRouterEvent(routerEvent);
@@ -35,5 +40,14 @@ export class AppComponent {
       routerEvent instanceof NavigationError) {
       this.loading = false;
     }
+  }
+
+  oauthSetup() {
+    this.oAuthService.requireHttps = false;
+    this.oAuthService.tokenEndpoint = '/api/oauth/token';
+    // this.oAuthService.userinfoEndpoint = '';
+    this.oAuthService.clientId = 'frontfront';
+    this.oAuthService.scope = 'openid profile email voucher offline_access';
+    this.oAuthService.dummyClientSecret = 'frontend';
   }
 }

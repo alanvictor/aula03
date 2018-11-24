@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AlertModule } from 'ngx-bootstrap/alert';
+import { OAuthModule } from 'angular-oauth2-oidc';
 
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
@@ -25,6 +27,8 @@ import { SharedComponentsModule } from './shared/components/components.module';
     PublicModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    AlertModule.forRoot(),
+    OAuthModule.forRoot()
   ],
   providers: [
     LostPetsResolver

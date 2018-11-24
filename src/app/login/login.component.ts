@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { AuthService } from '../auth/services/auth.service';
+import { UserService } from '../user/user.service';
 
 @Component({
   selector: 'app-login',
@@ -7,19 +9,34 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  isBusy = false;
   login: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private auth: AuthService,
+    private userService: UserService
+  ) { }
 
   ngOnInit() {
     this.login = this.formBuilder.group({
-      user: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(2)]]
+      email: ['', [Validators.required, Validators.email]],
+      senha: ['', [Validators.required, Validators.minLength(2)]]
     });
   }
 
   submit() {
-    console.log(this.login.value);
+    this.auth
+      .login(this.login.value)
+      .subscribe(
+        () => {
+          // redirect dashboard
+          this.userService.get().subscribe(users => console.log(users));
+        },
+        error => {
+          // mostrar mensagem pro usuário
+        }
+      );
   }
 
 }

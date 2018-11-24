@@ -10,6 +10,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { ToggleNavigationDirective } from './directives/toggle-navigation.directive';
 import { SharedComponentsModule } from './components/components.module';
 import { FormErrorMessageComponent } from './components/form-error-message/form-error-message.component';
+import { CounterComponent } from './components/counter/counter.component';
+import { FilesizePipe } from './pipes/filesize.pipe';
 
 @NgModule({
     imports: [
@@ -23,14 +25,17 @@ import { FormErrorMessageComponent } from './components/form-error-message/form-
         PageNotFoundComponent,
         FooterComponent,
         HeaderComponent,
-        FormErrorMessageComponent
+        FormErrorMessageComponent,
+        CounterComponent,
+        FilesizePipe
     ],
     exports: [
         PageNotFoundComponent,
         FooterComponent,
         HeaderComponent,
         IsAdoptedPipe,
-        FormErrorMessageComponent
+        FormErrorMessageComponent,
+        CounterComponent
     ]
 })
 export class SharedModule { }

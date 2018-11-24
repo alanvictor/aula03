@@ -47,15 +47,20 @@
 
     <button 
         type="submit" 
-        [disabled]="user.invalid"
+        [disabled]="user.invalid || isBusy"
+        [class.btn-spinning]="isBusy"
         class="btn btn-primary btn-block">
-        user
+        cadastrar
     </button>
+
+    <alert *ngIf="feedback" [type]="feedback.type">
+        <strong>{{feedback.title}}</strong> {{feedback.message}}
+    </alert>
 
 </form>
 
-<p>Nao tem usuário? <a routerLink="/sign-up">Cadastre-se</a></p>
+<!-- <p>Nao tem usuário? <a routerLink="/sign-up">Cadastre-se</a></p> -->
 
-<pre>
+<!-- <pre>
   {{ user.value | json }}
-</pre>
+</pre> -->

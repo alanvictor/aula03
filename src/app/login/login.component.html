@@ -9,14 +9,14 @@
         <input 
             class="form-control" 
             placeholder="usuário" 
-            formControlName="user"
+            formControlName="email"
             autofocus>  
         <app-form-error-message 
-          *ngIf="login.get('user').errors?.required">
+          *ngIf="login.get('email').errors?.required">
           nome do usuario é obrigatorio
-        </app-form-error-message>`
+        </app-form-error-message>
         <app-form-error-message 
-          *ngIf="login.get('user').errors?.email">
+          *ngIf="login.get('email').errors?.email">
           nome do usuario é email
         </app-form-error-message>
     </div>
@@ -25,16 +25,16 @@
         <input
             type="password" 
             class="form-control" 
-            formControlName="password"
+            formControlName="senha"
             placeholder="senha">              
             <span 
             class="text-danger d-block mt-2"
-            *ngIf="login.get('password').errors?.required">nome do usuario é um e-mail</span>
+            *ngIf="login.get('senha').errors?.required">nome do usuario é um e-mail</span>
     </div>
 
     <button 
         type="submit" 
-        [disabled]="login.invalid"
+        [disabled]="login.invalid || isBusy"
         class="btn btn-primary btn-block">
         login
     </button>
@@ -42,7 +42,3 @@
 </form>
 
 <p>Nao tem usuário? <a routerLink="/sign-up">Cadastre-se</a></p>
-
-<pre>
-  {{ login.value | json }}
-</pre>

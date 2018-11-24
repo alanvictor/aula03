@@ -1,0 +1,42 @@
+$base: #fff;
+$accent:rgb(153, 167, 184);
+
+.btn-spinning { 
+    text-indent: -9999px;
+    position: relative; 
+}
+
+.btn-spinning:after,
+.btn-spinning:before {
+    content: '';
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    animation: rotate360 .5s infinite linear, exist .1s forwards ease;
+}
+
+.btn-spinning:before {
+    border: 2px solid darken($base,40%);
+    border-right: 3px solid $accent;
+}
+
+.btn-spinning:after {
+    box-shadow: 0px 0px 0 1px darken($base,10%);
+}
+
+@keyframes rotate360 { 
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes exist { 
+    100% {
+        width: 15px;
+        height: 15px;
+        margin: -8px 5px 0 0;
+    }
+}
